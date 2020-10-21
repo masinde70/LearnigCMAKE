@@ -20,4 +20,22 @@ int main(int argc, char * argv[]){
         #endif
             return 1;
     }
+
+    path p;
+    for (; argc > 1; --argc, ++argv)
+        p /= argv[1]; // compose path p from the command line arguments
+
+        cout << "\ncomposed path:\n";
+        cout << " operator<<()------:" << p << "\n";
+        cout << " make_preferred()----:" << p.make_preferred() << "\n";
+
+        cout << "\nelements:\n";
+        for (auto element : p)
+            cout << " " << element <<"\n";
+
+        cout << "\nobservers, native format:"<<endl;
+        #ifdef BOOST_POSIX_API
+            cout << " native()-----:" <<p.native() <<endl;
+            cout << " c_str()-----: "<<p.c_str() <<endl;
+        #else // BOOST_WINDOWS_API
 }
