@@ -38,4 +38,6 @@ int main(int argc, char * argv[]){
             cout << " native()-----:" <<p.native() <<endl;
             cout << " c_str()-----: "<<p.c_str() <<endl;
         #else // BOOST_WINDOWS_API
+            wcout << L" Native().......: " << p.native() <<endl;
+            wcout << L" c_str()........: " << p.c_str() << endl;
 }
